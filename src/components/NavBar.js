@@ -1,10 +1,16 @@
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown, Modal, Button } from "react-bootstrap";
 import logo from "../pictures/access-wheel-logo.png";
 import newlogo from "../pictures/newlogo.png";
 import "./NavBar.css";
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import AddLocation from './AddLocation';
 
 const NavBar = () => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 	return (
 		<>
 			<Navbar bg="light" expand="lg">
@@ -17,7 +23,7 @@ const NavBar = () => {
 						<Nav className="me-auto">
 							<Nav.Link href="/">Home</Nav.Link>
 							<Nav.Link href="#link">Link</Nav.Link>
-							<Nav.Link href="/form">Add New Location</Nav.Link>
+							<Nav.Link onClick={handleShow}>Add New Location</Nav.Link>
 							<NavDropdown title="Dropdown" id="basic-nav-dropdown">
 								<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
 								<NavDropdown.Item href="#action/3.2">
@@ -35,6 +41,23 @@ const NavBar = () => {
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Add a new location</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <AddLocation/>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                    Submit
+                </Button>
+                </Modal.Footer>
+            </Modal>
 		</>
 	);
 };

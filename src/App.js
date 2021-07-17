@@ -1,6 +1,6 @@
 import LandingPage from './components/LandingPage';
 import Map from './components/Map';
-import AddLocation from './components/AddLocation';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Switch, Route, useHistory} from 'react-router-dom';
@@ -13,10 +13,6 @@ function App() {
       <Route exact path='/'>
         <LandingPage/>
         <Map/>
-      </Route>
-
-      <Route exact path='/form'>
-        <AddLocation/>
       </Route>
 
     </Switch>
