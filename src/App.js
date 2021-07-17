@@ -1,24 +1,15 @@
-import logo from './logo.svg';
+import LandingPage from './components/LandingPage';
+import Map from './components/Map';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  // fetch('https://api.woosmap.com/localities/details?key=woos-6b2a8838-6f25-3d58-b0bd-93f9d027c352&public_id=MVZWBfGZQnAQn9JtE9CJZjgeB4Q=').then(resp=>resp.json()).then(resp=>console.log(resp))
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <LandingPage/>
+      <Map/>
+    </>
   );
 }
 
