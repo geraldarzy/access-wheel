@@ -1,7 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-export default function App() {
+
+const AddLocation = () => {
 	const {
 		register,
 		handleSubmit,
@@ -48,3 +49,5 @@ export default function App() {
 		</form>
 	);
 }
+
+export default AddLocation
